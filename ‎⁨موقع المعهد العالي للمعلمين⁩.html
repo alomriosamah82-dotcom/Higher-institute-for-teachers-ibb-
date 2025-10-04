@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المعهد العالي للمعلمين - محافظة إب</title>
+    <style>
+    :root {
+    --primary-color: #1a5276;
+    --secondary-color: #2e86c1;
+    --accent-color: #3498db;
+    --light-color: #ebf5fb;
+    --dark-color: #154360;
+    --text-color: #333;
+    --background-color: #fff;
+    --font-family: 'Arial', sans-serif;
+    --font-size: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: var(--font-size);
+    line-height: 1.6;
+    transition: all 0.3s ease;
+}
+
+/* تصميم الشريط العلوي */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    margin-left: 15px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.logo img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.institute-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* حقل البحث المضاف */
+.search-container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    max-width: 400px;
+    margin: 0 15px;
+}
+
+#search-input {
+    flex-grow: 1;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    font-size: 1rem;
+}
+
+#search-btn {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#search-btn:hover {
+    background-color: var(--accent-color);
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: var(--secondary-color);
+}
+
+.yemen-flag {
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+/* تصميم قسم البطاقات الديناميكية */
+.specialties-section {
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+}
+
+.specialty-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto;
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.specialty-card.active {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.specialty-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.specialty-name {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.specialty-description {
+    color: var(--text-color);
+}
+
+.cards-container {
+    position: relative;
+    height: 300px;
+    margin-bottom: 2rem;
+    width:auto;
+}
+
+/* تصميم أقسام أخرى */
+.section {
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.news-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    transition: transform 0.3s;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+}
+
+.news-title {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.news-image {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+/* تصميم نافذة تسجيل الدخول */
+.login-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.login-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* تصميم لوحة التحكم */
+.dashboard {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1500;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.dashboard-title {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.close-dashboard {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--dark-color);
+}
+
+.dashboard-tabs {
+    display: flex;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab {
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+}
+
+.tab.active {
+    border-bottom-color: var(--primary-color);
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.control-group {
+    margin-bottom: 1.5rem;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.control-group input, .control-group select, .control-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.required {
+    color: #e74c3c;
+}
+
+.color-picker {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.color-option {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.color-option.active {
+    border-color: #333;
+}
+
+.save-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+
+.save-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.items-list {
+    margin-top: 1rem;
+}
+
+.item {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-actions button {
+    margin-right: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background-color: #f39c12;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+/* تصميم متجاوب */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .search-container {
+        order: 3;
+        width: 100%;
+        max-width: none;
+        margin: 10px 0 0 0;
+    }
+    
+    .nav-toggle {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+    }
+
+    nav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        display: none;
+    }
+
+    nav.active {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 1rem;
+    }
+
+    .news-container {
+        grid-template-columns: 1fr;
+    }
+}
+.no-results {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    font-size: 1.2rem;
+    grid-column: 1 / -1;
+}
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <div class="logo">
+                    <!-- سيتم إضافة الشعار من لوحة التحكم -->
+                </div>
+                <div class="institute-name">المعهد العالي للمعلمين - محافظة إب</div>
+            </div>
+            
+            <!-- حقل البحث المضاف -->
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="ابحث في الأخبار...">
+                <button id="search-btn">بحث</button>
+            </div>
+            
+            <button class="nav-toggle">☰</button>
+            
+            <nav>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#news">الأخبار</a></li>
+                    <li><a href="#registration">التسجيل والقبول</a></li>
+                </ul>
+            </nav>
+            
+            <div class="yemen-flag">🇾🇪</div>
+        </div>
+    </header>
+
+    <!-- الشاشة الرئيسية -->
+    <main>
+        <!-- قسم البطاقات الديناميكية -->
+        <section class="specialties-section" id="home">
+            <h2 class="section-title">التخصصات الأكاديمية</h2>
+            <div class="cards-container">
+                <!-- سيتم إنشاء البطاقات ديناميكيًا -->
+            </div>
+        </section>
+
+        <!-- قسم الأخبار (هذا هو القسم العام للصفحة الرئيسية) -->
+        <section class="section" id="news">
+            <h2 class="section-title">الأخبار والمنشورات</h2>
+            <div class="news-container">
+                <!-- سيتم إنشاء الأخبار ديناميكيًا -->
+            </div>
+        </section>
+
+        <!-- قسم التسجيل والقبول -->
+        <section class="section" id="registration">
+            <h2 class="section-title">التسجيل والقبول</h2>
+            <div>
+            
+       <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بوابة التسجيل والقبول – المعهد العالي للمعلمين</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --success: #4cc9f0;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --danger: #e63946;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: linear-gradient(135deg,#f5f7fa,#c3cfe2); min-height:100vh; padding:20px; color:var(--dark); line-height:1.6; }
+        .container { max-width:800px; margin:0 auto; background:white; border-radius:var(--border-radius); box-shadow:var(--box-shadow); overflow:hidden; }
+        header { background: linear-gradient(to right,var(--primary),var(--secondary)); color:white; padding:30px 20px; text-align:center; }
+        header h1 { font-size:2.2rem; margin-bottom:10px; }
+        header p { font-size:1.1rem; opacity:0.9; }
+        .form-container { padding:30px; }
+        .form-group { margin-bottom:20px; }
+        label { display:block; margin-bottom:8px; font-weight:600; color:var(--dark); }
+        .required::after { content:" *"; color:var(--danger); }
+        input, select, textarea { width:100%; padding:12px 15px; border:1px solid #ddd; border-radius:var(--border-radius); font-size:1rem; transition:all 0.3s; }
+        input:focus, select:focus, textarea:focus { outline:none; border-color:var(--primary); box-shadow:0 0 0 3px rgba(67,97,238,0.2); }
+        .file-upload { position:relative; display:inline-block; width:100%; }
+        .file-upload-input { padding:12px 15px; border:1px dashed #ccc; border-radius:var(--border-radius); background:#f9f9f9; cursor:pointer; text-align:center; transition:all 0.3s; }
+        .file-upload-input:hover { background:#f0f0f0; border-color:var(--primary); }
+        .file-list { margin-top:10px; font-size:0.9rem; }
+        .file-item { display:flex; justify-content:space-between; align-items:center; background:#f1f1f1; padding:8px 12px; border-radius:4px; margin-bottom:5px; }
+        .file-item button { background:none; border:none; color:var(--danger); cursor:pointer; }
+        .btn { display:block; width:100%; padding:14px; background:linear-gradient(to right,var(--primary),var(--secondary)); color:white; border:none; border-radius:var(--border-radius); font-size:1.1rem; font-weight:600; cursor:pointer; transition:all 0.3s; margin-top:20px; }
+        .btn:hover { transform:translateY(-2px); box-shadow:0 6px 12px rgba(0,0,0,0.15); }
+        .btn:disabled { background:#ccc; cursor:not-allowed; transform:none; box-shadow:none; }
+        .alert { padding:15px; border-radius:var(--border-radius); margin-bottom:20px; display:none; }
+        .alert-success { background:#d4edda; color:#155724; border:1px solid #c3e6cb; }
+        .alert-error { background:#f8d7da; color:#721c24; border:1px solid #f5c6cb; }
+        .loading { display:none; text-align:center; margin:20px 0; }
+        .spinner { border:4px solid rgba(0,0,0,0.1); border-left-color:var(--primary); border-radius:50%; width:40px; height:40px; animation:spin 1s linear infinite; margin:0 auto 10px; }
+        @keyframes spin { to { transform:rotate(360deg); } }
+        footer { text-align:center; padding:20px; background:#f8f9fa; color:#6c757d; font-size:0.9rem; }
+        @media(max-width:768px){ body{padding:10px;} .form-container{padding:20px;} header h1{font-size:1.8rem;} }
+    </style>
+</head>
+<body>
+<div class="container">
+<header>
+    <h1><i class="fas fa-graduation-cap"></i> المعهد العالي للمعلمين – محافظة إب</h1>
+    <p>بوابة التسجيل الإلكتروني – املأ النموذج أدناه لتقديم طلبك</p>
+</header>
+<div class="form-container">
+    <div id="successAlert" class="alert alert-success"><i class="fas fa-check-circle"></i> تم إرسال طلبك بنجاح! سنتواصل معك قريبًا.</div>
+    <div id="errorAlert" class="alert alert-error"><i class="fas fa-exclamation-triangle"></i> حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.</div>
+    <form id="registrationForm">
+        <div class="form-group">
+            <label for="fullName" class="required">الاسم الكامل</label>
+            <input type="text" id="fullName" name="fullName" required>
+        </div>
+        <div class="form-group">
+            <label for="gender" class="required">النوع</label>
+            <select id="gender" name="gender" required>
+                <option value="">اختر النوع</option>
+                <option value="ذكر">ذكر</option>
+                <option value="أنثى">أنثى</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="phone" class="required">رقم الهاتف (9 أرقام)</label>
+            <input type="tel" id="phone" name="phone" pattern="\d{9}" required>
+        </div>
+        <div class="form-group">
+            <label for="branch" class="required">فرع المعهد</label>
+            <select id="branch" name="branch" required>
+                <option value="">اختر الفرع</option>
+                <option value="إب">إب</option>
+                <option value="يريم">يريم</option>
+                <option value="العدين">العدين</option>
+                <option value="القاعدة">القاعدة</option>
+                <option value="ذي السفال">ذي السفال</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="specialization" class="required">التخصص</label>
+            <select id="specialization" name="specialization" required>
+                <option value="">اختر التخصص</option>
+                <option value="معلم صف">معلم صف</option>
+                <option value="قرآن وعلومه">قرآن وعلومه</option>
+                <option value="لغة عربية">لغة عربية</option>
+                <option value="اجتماعيات">اجتماعيات</option>
+                <option value="إرشاد تربوي">إرشاد تربوي</option>
+                <option value="علوم">علوم</option>
+                <option value="رياضيات">رياضيات</option>
+                <option value="تربية فنية">تربية فنية</option>
+                <option value="لغة إنجليزية">لغة إنجليزية</option>
+                <option value="حاسوب">حاسوب</option>
+                <option value="تربية رياضية">تربية رياضية</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="required">رفع شهادة الثانوية (PDF أو صورة)</label>
+            <div class="file-upload">
+                <input type="file" id="certificate" class="file-upload-input" accept=".pdf,.jpg,.jpeg,.png" required>
+                <div class="file-list" id="certificateList"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="">رفع سند دفع رسوم التسجيل (PDF أو صورة)</label>
+            <div class="file-upload">
+                <input type="file" id="receipt" class="file-upload-input" accept=".pdf,.jpg,.jpeg,.png" required>
+                <div class="file-list" id="receiptList"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>الاستفسارات أو الملاحظات (اختياري)</label>
+            <textarea id="notes" rows="3"></textarea>
+        </div>
+        <div class="loading" id="loading"><div class="spinner"></div><p>جاري إرسال الطلب...</p></div>
+        <button type="submit" class="btn" id="submitBtn"><i class="fas fa-paper-plane"></i> إرسال الطلب</button>
+    </form>
+  <div class="form-group" style="margin-top:30px;">
+    <h3>🔹 قسم الشروط والتعليمات</h3>
+    <ul style="list-style:none; padding:0; line-height:1.8;">
+        <li>• 💰 رسوم التسجيل 5000 ريال يمني عبر بنك الكريمي على رقم الحساب <strong>3011172074</strong></li>
+        <li>• يجب أن يكون الطالب/ـة حاصلًا على شهادة الثانوية العامة.</li>
+        <li>• إذا كان الطالب/ـة من طلاب الثانوية العامة للعام الجاري واجتاز الامتحان وحصل على النتيجة، يمكنه التسجيل ببيان الدرجات (النتيجة).</li>
+        <li>• الوثائق المطلوبة عند الحضور إلى المعهد:</li>
+        <ul style="list-style:none; padding-left:20px;">
+            <li>– استمارة ثالث ثانوي (الأصل).</li>
+            <li>– صورة طبق الأصل من الاستمارة.</li>
+            <li>– أربع صور شخصية 2×3 غير محسنة بخلفية بيضاء.</li>
+            <li>– صورة شخصية إلكترونية 4×6 غير محسنة بصيغة JPG بخلفية بيضاء.</li>
+        </ul>
+    </ul>
+</div>
+
+
+<script>
+    // Telegram Bot Configuration
+    const BOT_TOKEN = '8039174969:AAElZf2_ZTPR6cFIjFTG4J91i_d7HkdjCUw';
+    const CHAT_ID = '@highinteacher';
+
+    // DOM Elements
+    const form = document.getElementById('registrationForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const loading = document.getElementById('loading');
+    const successAlert = document.getElementById('successAlert');
+    const errorAlert = document.getElementById('errorAlert');
+    const certificateInput = document.getElementById('certificate');
+    const receiptInput = document.getElementById('receipt');
+    const notesInput = document.getElementById('notes');
+    const certificateList = document.getElementById('certificateList');
+    const receiptList = document.getElementById('receiptList');
+
+    // Track uploaded files
+    let certificateFile = null;
+    let receiptFile = null;
+
+    // File change handlers
+    certificateInput.addEventListener('change', () => {
+        certificateFile = certificateInput.files[0] || null;
+        updateCertificateList();
+    });
+    receiptInput.addEventListener('change', () => {
+        receiptFile = receiptInput.files[0] || null;
+        updateReceiptList();
+    });
+
+    function updateCertificateList() {
+        certificateList.innerHTML = '';
+        if (certificateFile) {
+            certificateList.innerHTML = `
+            <div class="file-item">
+                <span>${certificateFile.name}</span>
+                <button type="button" onclick="removeCertificate()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>`;
+        }
+    }
+
+    function updateReceiptList() {
+        receiptList.innerHTML = '';
+        if (receiptFile) {
+            receiptList.innerHTML = `
+            <div class="file-item">
+                <span>${receiptFile.name}</span>
+                <button type="button" onclick="removeReceipt()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>`;
+        }
+    }
+
+    function removeCertificate() { certificateFile=null; certificateInput.value=''; updateCertificateList(); }
+    function removeReceipt() { receiptFile=null; receiptInput.value=''; updateReceiptList(); }
+
+    // Form submission
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if(!validateForm()) return;
+
+        setLoading(true);
+
+        try {
+            // Create message
+            const messageText = `
+📋 طلب تسجيل جديد - المعهد العالي للمعلمين
+
+👤 الاسم: ${document.getElementById('fullName').value}
+🧑‍🎓 النوع: ${document.getElementById('gender').value}
+🏢 الفرع: ${document.getElementById('branch').value}
+📞 الهاتف: ${document.getElementById('phone').value}
+🎓 التخصص: ${document.getElementById('specialization').value}
+📝 ملاحظات: ${notesInput.value || 'لا توجد'}
+
+⏰ الوقت: ${new Date().toLocaleString('ar-SA')}
+            `;
+            await sendTextMessage(messageText);
+
+            if(certificateFile) await sendFile(certificateFile, 'شهادة الثانوية');
+            if(receiptFile) await sendFile(receiptFile, 'سند دفع رسوم التسجيل');
+
+            showSuccess();
+            form.reset();
+            certificateFile=null; receiptFile=null;
+            updateCertificateList(); updateReceiptList();
+
+        } catch(err) {
+            console.error(err);
+            showError('حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.');
+        } finally { setLoading(false); }
+    });
+
+    function validateForm() {
+        const fullName = document.getElementById('fullName').value.trim();
+        const gender = document.getElementById('gender').value;
+        const branch = document.getElementById('branch').value;
+        const phone = document.getElementById('phone').value.trim();
+        const specialization = document.getElementById('specialization').value;
+
+        if(!fullName || !gender || !branch || !phone || !specialization){
+            showError('يرجى ملء جميع الحقول المطلوبة');
+            return false;
+        }
+        if(!certificateFile){ showError('يرجى رفع شهادة الثانوية'); return false; }
+        if(!receiptFile){ showError('يرجى رفع سند دفع رسوم التسجيل'); return false; }
+
+        const phoneRegex = /^\d{9}$/;
+        if(!phoneRegex.test(phone)){
+            showError('يرجى إدخال رقم هاتف صحيح (9 أرقام)');
+            return false;
+        }
+        return true;
+    }
+
+    async function sendTextMessage(text){
+        const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+        const res = await fetch(url, {
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({ chat_id:CHAT_ID, text:text })
+        });
+        if(!res.ok) throw new Error(`Telegram API error: ${res.status}`);
+        return res.json();
+    }
+
+    async function sendFile(file, caption){
+        const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendDocument`;
+        const formData = new FormData();
+        formData.append('chat_id', CHAT_ID);
+        formData.append('document', file);
+        formData.append('caption', `${caption}: ${file.name}`);
+
+        const res = await fetch(url,{ method:'POST', body:formData });
+        if(!res.ok) throw new Error(`Telegram API error: ${res.status}`);
+        return res.json();
+    }
+
+    function setLoading(isLoading){
+        submitBtn.disabled = isLoading;
+        loading.style.display = isLoading ? 'block':'none';
+        if(isLoading){ successAlert.style.display='none'; errorAlert.style.display='none'; }
+    }
+
+    function showSuccess(){
+        successAlert.style.display='block'; errorAlert.style.display='none';
+        window.scrollTo({top:0, behavior:'smooth'});
+    }
+    function showError(msg){
+        errorAlert.innerHTML = `<i class="fas fa-exclamation-triangle"></i> ${msg}`;
+        errorAlert.style.display='block'; successAlert.style.display='none';
+        window.scrollTo({top:0, behavior:'smooth'});
+    }
+</script>
+</body>
+</html>
+            
+            </div>
+        </section>
+    </main>
+
+    <!-- نافذة تسجيل الدخول -->
+    <div class="login-modal">
+        <div class="login-form">
+            <h2>تسجيل الدخول</h2>
+            <div class="form-group">
+                <label for="username">اسم المستخدم</label>
+                <input type="text" id="username" placeholder="أدخل اسم المستخدم">
+            </div>
+            <div class="form-group">
+                <label for="password">كلمة المرور</label>
+                <input type="password" id="password" placeholder="أدخل كلمة المرور">
+            </div>
+            <button class="login-btn">دخول</button>
+        </div>
+    </div>
+
+    <!-- لوحة التحكم -->
+    <div class="dashboard">
+        <div class="dashboard-header">
+            <h2 class="dashboard-title">لوحة التحكم</h2>
+            <button class="close-dashboard">✕</button>
+        </div>
+
+        <div class="dashboard-tabs">
+            <div class="tab active" data-tab="general">عام</div>
+            <div class="tab" data-tab="appearance">المظهر</div>
+            <div class="tab" data-tab="sections">الأقسام</div>
+            <!-- ملاحظة: غيرت data-tab و id الخاص بتبويب الأخبار داخل لوحة التحكم إلى dashboard-news -->
+            <div class="tab" data-tab="dashboard-news">الأخبار</div>
+        </div>
+
+        <!-- إعدادات عامة -->
+        <div class="tab-content active" id="general">
+            <div class="control-group">
+                <label for="institute-logo">شعار المعهد</label>
+                <input type="file" id="institute-logo" accept="image/*">
+                <div class="logo-preview" style="margin-top: 10px;"></div>
+            </div>
+            <div class="control-group">
+                <label for="institute-name">اسم المعهد</label>
+                <input type="text" id="institute-name" value="المعهد العالي للمعلمين - محافظة إب">
+            </div>
+            <div class="control-group">
+                <label for="academic-year">العام الدراسي</label>
+                <input type="text" id="academic-year" value="2024-2025">
+            </div>
+            <button class="save-btn" data-save="general">حفظ الإعدادات</button>
+        </div>
+
+        <!-- إعدادات المظهر -->
+        <div class="tab-content" id="appearance">
+            <div class="control-group">
+                <label>اللون الأساسي</label>
+                <div class="color-picker" data-color="primary">
+                    <div class="color-option active" style="background-color: #1a5276;" data-value="#1a5276"></div>
+                    <div class="color-option" style="background-color: #2c3e50;" data-value="#2c3e50"></div>
+                    <div class="color-option" style="background-color: #27ae60;" data-value="#27ae60"></div>
+                    <div class="color-option" style="background-color: #8e44ad;" data-value="#8e44ad"></div>
+                    <div class="color-option" style="background-color: #c0392b;" data-value="#c0392b"></div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label>لون النص</label>
+                <div class="color-picker" data-color="text">
+                    <div class="color-option active" style="background-color: #333;" data-value="#333"></div>
+                    <div class="color-option" style="background-color: #555;" data-value="#555"></div>
+                    <div class="color-option" style="background-color: #000;" data-value="#000"></div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="font-size">حجم الخط</label>
+                <select id="font-size">
+                    <option value="14px">صغير</option>
+                    <option value="16px" selected>متوسط</option>
+                    <option value="18px">كبير</option>
+                </select>
+            </div>
+            <button class="save-btn" data-save="appearance">حفظ الإعدادات</button>
+        </div>
+
+        <!-- إعدادات الأقسام -->
+        <div class="tab-content" id="sections">
+            <div class="control-group">
+                <label>
+                    <input type="checkbox" id="toggle-news" checked> عرض قسم الأخبار
+                </label>
+            </div>
+            <div class="control-group">
+                <label>
+                    <input type="checkbox" id="toggle-registration" checked> عرض قسم التسجيل والقبول
+                </label>
+            </div>
+            <div class="control-group">
+                <label>
+                    <input type="checkbox" id="toggle-specialties" checked> عرض بطاقات التخصصات
+                </label>
+            </div>
+            <button class="save-btn" data-save="sections">حفظ الإعدادات</button>
+        </div>
+
+        <!-- إدارة الأخبار داخل لوحة التحكم (ملاحظة: id مختلف الآن dashboard-news) -->
+        <div class="tab-content" id="dashboard-news">
+            <div class="control-group">
+                <label for="news-title">عنوان المنشور <span class="required">*</span></label>
+                <input type="text" id="news-title" required>
+            </div>
+            <div class="control-group">
+                <label for="news-image">صورة المنشور (اختياري)</label>
+                <input type="file" id="news-image" accept="image/*">
+                <div class="image-preview" style="margin-top: 10px;"></div>
+            </div>
+            <div class="control-group">
+                <label for="news-content">وصف المنشور (اختياري)</label>
+                <textarea id="news-content" rows="4"></textarea>
+            </div>
+            <button class="save-btn" id="add-news">حفظ المنشور</button>
+            
+            <div class="items-list" id="news-list">
+                <!-- قائمة الأخبار -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+    
+// بيانات التخصصات
+const specialties = [
+    {
+        name: "معلم صف",
+        icon: "📚",
+        description: "تأهيل معلمين متخصصين في تدريس المرحلة الأساسية بكفاءة عالية"
+    },
+    {
+        name: "قرآن وعلومه",
+        icon: "📖",
+        description: "دراسة القرآن الكريم وعلومه وتدريسها بأحدث الطرق التربوية"
+    },
+    {
+        name: "لغة عربية",
+        icon: "✍️",
+        description: "إتقان اللغة العربية وآدابها وتدريسها بطرق مبتكرة"
+    },
+    {
+        name: "اجتماعيات",
+        icon: "🌍",
+        description: "دراسة العلوم الاجتماعية وتطبيقاتها في العملية التعليمية"
+    },
+    {
+        name: "إرشاد تربوي",
+        icon: "💼",
+        description: "تأهيل مرشدين تربويين لدعم الطلاب وتوجيههم أكاديمياً ونفسياً"
+    },
+    {
+        name: "علوم",
+        icon: "🔬",
+        description: "تدريس العلوم الطبيعية وتطبيقاتها العملية في الحياة اليومية"
+    },
+    {
+        name: "رياضيات",
+        icon: "📐",
+        description: "تعليم الرياضيات وتطوير مهارات التفكير المنطقي والتحليلي"
+    },
+    {
+        name: "تربية فنية",
+        icon: "🎨",
+        description: "تنمية المهارات الفنية والإبداعية لدى الطلاب والمعلمين"
+    },
+    {
+        name: "لغة انجليزية",
+        icon: "🌐",
+        description: "إتقان اللغة الإنجليزية وتدريسها بطرق تفاعلية حديثة"
+    },
+    {
+        name: "حاسوب",
+        icon: "💻",
+        description: "تدريس علوم الحاسوب وتقنية المعلومات وتطبيقاتها التعليمية"
+    },
+    {
+        name: "تربية رياضية",
+        icon: "⚽",
+        description: "تعزيز اللياقة البدنية والصحية وتدريس التربية الرياضية"
+    }
+];
+
+// بيانات أولية للأخبار
+const initialNews = [
+    { 
+        id: Date.now(),
+        title: "بداية العام الدراسي الجديد", 
+        content: "يعلن المعهد عن بداية العام الدراسي 2024-2025",
+        image: null
+    },
+    { 
+        id: Date.now() + 1,
+        title: "ورشة عمل للطلاب الجدد", 
+        content: "ينظم المعهد ورشة تعريفية للطلاب الجدد الأسبوع القادم",
+        image: null
+    }
+];
+
+// العناصر الأساسية في DOM
+const loginModal = document.querySelector('.login-modal');
+const dashboard = document.querySelector('.dashboard');
+const yemenFlag = document.querySelector('.yemen-flag');
+const loginBtn = document.querySelector('.login-btn');
+const closeDashboard = document.querySelector('.close-dashboard');
+const navToggle = document.querySelector('.nav-toggle');
+const nav = document.querySelector('nav');
+const searchInput = document.getElementById('search-input');
+const searchBtn = document.getElementById('search-btn');
+
+// متغيرات إدارة الأخبار
+let editingNewsId = null;
+
+// تهيئة التطبيق
+document.addEventListener('DOMContentLoaded', function() {
+    // تحميل البيانات من التخزين المحلي
+    loadFromLocalStorage();
+    
+    // تهيئة البطاقات الديناميكية
+    initSpecialtyCards();
+    
+    // تهيئة لوحة التحكم
+    initDashboard();
+    
+    // تهيئة الأحداث
+    initEvents();
+    
+    // عرض الأخبار
+    displayNews();
+});
+
+// تهيئة البطاقات الديناميكية
+function initSpecialtyCards() {
+    const cardsContainer = document.querySelector('.cards-container');
+    
+    // إنشاء البطاقات
+    specialties.forEach((specialty, index) => {
+        const card = document.createElement('div');
+        card.className = 'specialty-card';
+        card.innerHTML = `
+            <div class="specialty-icon">${specialty.icon}</div>
+            <h3 class="specialty-name">${specialty.name}</h3>
+            <p class="specialty-description">${specialty.description}</p>
+        `;
+        
+        if (index === 0) {
+            card.classList.add('active');
+        }
+        
+        cardsContainer.appendChild(card);
+    });
+    
+    // تبديل البطاقات كل 5 ثوان
+    let currentIndex = 0;
+    setInterval(() => {
+        const cards = document.querySelectorAll('.specialty-card');
+        cards[currentIndex].classList.remove('active');
+        
+        currentIndex = (currentIndex + 1) % specialties.length;
+        cards[currentIndex].classList.add('active');
+    }, 5000);
+}
+
+// تهيئة لوحة التحكم
+function initDashboard() {
+    // تهيئة علامات التبويب
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // إزالة النشاط من جميع العلامات
+            tabs.forEach(t => t.classList.remove('active'));
+            // إضافة النشاط للعلامة المحددة
+            this.classList.add('active');
+            
+            // إخفاء جميع محتويات العلامات
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // إظهار محتوى العلامة المحددة
+            const tabId = this.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active');
+        });
+    });
+    
+    // تهيئة أزرار الحفظ
+    const saveButtons = document.querySelectorAll('.save-btn');
+    saveButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const saveType = this.getAttribute('data-save');
+            if (saveType) {
+                saveSettings(saveType);
+            }
+        });
+    });
+    
+    // تهيئة إضافة/تعديل الأخبار
+    document.getElementById('add-news').addEventListener('click', saveNewsItem);
+    
+    // تهيئة معاينة الصورة للأخبار
+    document.getElementById('news-image').addEventListener('change', function() {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const preview = document.querySelector('.image-preview');
+                preview.innerHTML = `<img src="${e.target.result}" style="max-width: 200px; max-height: 150px;">`;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+    
+    // تهيئة معاينة الشعار
+    document.getElementById('institute-logo').addEventListener('change', function() {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const preview = document.querySelector('.logo-preview');
+                preview.innerHTML = `<img src="${e.target.result}" style="max-width: 200px; max-height: 150px;">`;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+    
+    // عرض الأخبار في لوحة التحكم
+    displayNews();
+}
+
+// تهيئة الأحداث
+function initEvents() {
+    // فتح نافذة تسجيل الدخول
+    yemenFlag.addEventListener('click', function() {
+        loginModal.style.display = 'flex';
+    });
+    
+    // تسجيل الدخول
+    loginBtn.addEventListener('click', function() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        
+        if (username === 'Yemen' && password === 'happy2025world') {
+            loginModal.style.display = 'none';
+            dashboard.style.display = 'block';
+        } else {
+            alert('اسم المستخدم أو كلمة المرور غير صحيحة');
+        }
+    });        
+    
+    // إغلاق لوحة التحكم
+    closeDashboard.addEventListener('click', function() {
+        dashboard.style.display = 'none';
+    });
+    
+    // تبديل القائمة في الهواتف
+    navToggle.addEventListener('click', function() {
+        nav.classList.toggle('active');
+    });
+    
+    // إغلاق نافذة تسجيل الدخول بالنقر خارجها
+    window.addEventListener('click', function(event) {
+        if (event.target === loginModal) {
+            loginModal.style.display = 'none';
+        }
+    });
+    
+    // تفعيل البحث
+    searchBtn.addEventListener('click', performSearch);
+    searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            performSearch();
+        }
+    });
+}
+
+// تنفيذ البحث
+function performSearch() {
+    const searchTerm = searchInput.value.trim().toLowerCase();
+    
+    if (searchTerm === '') {
+        displayNews(); // عرض جميع الأخبار إذا كان حقل البحث فارغاً
+        return;
+    }
+    
+    const news = JSON.parse(localStorage.getItem('news')) || initialNews;
+    const filteredNews = news.filter(item => 
+        item.title.toLowerCase().includes(searchTerm) || 
+        (item.content && item.content.toLowerCase().includes(searchTerm))
+    );
+    
+    displayFilteredNews(filteredNews);
+}
+
+// عرض الأخبار بعد التصفية
+function displayFilteredNews(filteredNews) {
+    const newsContainer = document.querySelector('.news-container');
+    newsContainer.innerHTML = '';
+    
+    if (filteredNews.length === 0) {
+        newsContainer.innerHTML = '<p class="no-results">لم يتم العثور على نتائج تطابق بحثك</p>';
+        return;
+    }
+    
+    filteredNews.forEach(item => {
+        const newsCard = document.createElement('div');
+        newsCard.className = 'news-card';
+        newsCard.innerHTML = `
+            <h3 class="news-title">${item.title}</h3>
+            ${item.image ? `<img src="${item.image}" class="news-image" alt="${item.title}">` : ''}
+            <p>${item.content || 'لا يوجد وصف'}</p>
+        `;
+        newsContainer.appendChild(newsCard);
+    });
+}
+
+// حفظ الإعدادات حسب النوع
+function saveSettings(type) {
+    switch(type) {
+        case 'general':
+            saveGeneralSettings();
+            break;
+        case 'appearance':
+            saveAppearanceSettings();
+            break;
+        case 'sections':
+            saveSectionsSettings();
+            break;
+    }
+    
+    alert('تم حفظ الإعدادات بنجاح');
+}
+
+// حفظ الإعدادات العامة
+function saveGeneralSettings() {
+    const instituteName = document.getElementById('institute-name').value;
+    const academicYear = document.getElementById('academic-year').value;
+    
+    // تحديث اسم المعهد في الشاشة الرئيسية
+    document.querySelector('.institute-name').textContent = instituteName;
+    
+    // حفظ في التخزين المحلي
+    localStorage.setItem('instituteName', instituteName);
+    localStorage.setItem('academicYear', academicYear);
+    
+    // معالجة رفع الشعار
+    const logoFile = document.getElementById('institute-logo').files[0];
+    if (logoFile) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const logoImg = document.querySelector('.logo');
+            logoImg.innerHTML = `<img src="${e.target.result}" alt="شعار المعهد">`;
+            localStorage.setItem('instituteLogo', e.target.result);
+        };
+        reader.readAsDataURL(logoFile);
+    }
+}
+
+// حفظ إعدادات المظهر
+function saveAppearanceSettings() {
+    // الحصول على الألوان المحددة
+    const primaryColor = document.querySelector('[data-color="primary"] .color-option.active').getAttribute('data-value');
+    const textColor = document.querySelector('[data-color="text"] .color-option.active').getAttribute('data-value');
+    const fontSize = document.getElementById('font-size').value;
+    
+    // تطبيق التغييرات
+    document.documentElement.style.setProperty('--primary-color', primaryColor);
+    document.documentElement.style.setProperty('--text-color', textColor);
+    document.documentElement.style.setProperty('--font-size', fontSize);
+    
+    // حفظ في التخزين المحلي
+    localStorage.setItem('primaryColor', primaryColor);
+    localStorage.setItem('textColor', textColor);
+    localStorage.setItem('fontSize', fontSize);
+}
+
+// حفظ إعدادات الأقسام
+function saveSectionsSettings() {
+    const showNews = document.getElementById('toggle-news').checked;
+    const showRegistration = document.getElementById('toggle-registration').checked;
+    const showSpecialties = document.getElementById('toggle-specialties').checked;
+    
+    // إظهار/إخفاء الأقسام
+    document.getElementById('news').style.display = showNews ? 'block' : 'none';
+    document.getElementById('registration').style.display = showRegistration ? 'block' : 'none';
+    document.querySelector('.specialties-section').style.display = showSpecialties ? 'block' : 'none';
+    
+    // حفظ في التخزين المحلي
+    localStorage.setItem('showNews', showNews);
+    localStorage.setItem('showRegistration', showRegistration);
+    localStorage.setItem('showSpecialties', showSpecialties);
+}
+
+// حفظ/تعديل منشور
+function saveNewsItem() {
+    const title = document.getElementById('news-title').value;
+    const content = document.getElementById('news-content').value;
+    const imageFile = document.getElementById('news-image').files[0];
+    
+    if (!title) {
+        alert('يرجى إدخال عنوان المنشور');
+        return;
+    }
+    
+    // الحصول على الأخبار الحالية
+    let news = JSON.parse(localStorage.getItem('news')) || initialNews;
+    
+    if (editingNewsId !== null) {
+        // تعديل المنشور الحالي
+        if (imageFile) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                // تحديث الخبر الموجود
+                const index = news.findIndex(item => item.id == editingNewsId);
+                if (index !== -1) {
+                    news[index] = { 
+                        id: editingNewsId,
+                        title, 
+                        content, 
+                        image: e.target.result 
+                    };
+                }
+                localStorage.setItem('news', JSON.stringify(news));
+                resetNewsForm();
+                displayNews();
+            };
+            reader.readAsDataURL(imageFile);
+        } else {
+            // الاحتفاظ بالصورة القديمة إذا لم يتم رفع صورة جديدة
+            const index = news.findIndex(item => item.id == editingNewsId);
+            if (index !== -1) {
+                const oldImage = news[index].image;
+                news[index] = { 
+                    id: editingNewsId,
+                    title, 
+                    content, 
+                    image: oldImage 
+                };
+            }
+            localStorage.setItem('news', JSON.stringify(news));
+            resetNewsForm();
+            displayNews();
+        }
+    } else {
+        // إضافة منشور جديد
+        const newNews = { 
+            id: Date.now(),
+            title, 
+            content, 
+            image: null 
+        };
+        
+        // معالجة صورة الخبر
+        if (imageFile) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                newNews.image = e.target.result;
+                news.push(newNews);
+                localStorage.setItem('news', JSON.stringify(news));
+                resetNewsForm();
+                displayNews();
+            };
+            reader.readAsDataURL(imageFile);
+        } else {
+            news.push(newNews);
+            localStorage.setItem('news', JSON.stringify(news));
+            resetNewsForm();
+            displayNews();
+        }
+    }
+}
+
+// إعادة تعيين نموذج الأخبار
+function resetNewsForm() {
+    document.getElementById('news-title').value = '';
+    document.getElementById('news-content').value = '';
+    document.getElementById('news-image').value = '';
+    document.querySelector('.image-preview').innerHTML = '';
+    document.getElementById('add-news').textContent = 'حفظ المنشور';
+    editingNewsId = null;
+}
+
+// تعديل منشور
+function editNewsItem(id) {
+    const news = JSON.parse(localStorage.getItem('news')) || initialNews;
+    const item = news.find(newsItem => newsItem.id == id);
+    
+    if (!item) return;
+    
+    document.getElementById('news-title').value = item.title;
+    document.getElementById('news-content').value = item.content || '';
+    
+    if (item.image) {
+        document.querySelector('.image-preview').innerHTML = `<img src="${item.image}" style="max-width: 200px; max-height: 150px;">`;
+    } else {
+        document.querySelector('.image-preview').innerHTML = '';
+    }
+    
+    document.getElementById('add-news').textContent = 'تحديث المنشور';
+    editingNewsId = id;
+    
+    // الانتقال إلى تبويب الأخبار داخل لوحة التحكم
+    // ملاحظة: تم تعديل selector ليتوافق مع data-tab الجديد dashboard-news
+    const newsTab = document.querySelector('[data-tab="dashboard-news"]');
+    if (newsTab) newsTab.click();
+}
+
+// حذف منشور
+function deleteNewsItem(id) {
+    if (confirm('هل أنت متأكد من حذف هذا المنشور؟')) {
+        let news = JSON.parse(localStorage.getItem('news')) || initialNews;
+        news = news.filter(item => item.id != id);
+        localStorage.setItem('news', JSON.stringify(news));
+        displayNews();
+    }
+}
+
+// عرض الأخبار
+function displayNews() {
+    const newsList = document.getElementById('news-list');
+    const newsContainer = document.querySelector('.news-container');
+    
+    // مسح المحتوى الحالي
+    if (newsList) newsList.innerHTML = '';
+    if (newsContainer) newsContainer.innerHTML = '';
+    
+    // الحصول على الأخبار
+    const news = JSON.parse(localStorage.getItem('news')) || initialNews;
+    
+    // إذا لم توجد أخبار، نستخدم البيانات الأولية ونحفظها
+    if (!news || news.length === 0) {
+        localStorage.setItem('news', JSON.stringify(initialNews));
+        displayNews(); // إعادة استدعاء الدالة بالبيانات الجديدة
+        return;
+    }
+    
+    // عرض الأخبار في لوحة التحكم
+    if (newsList) {
+        news.forEach((item) => {
+            const newsItem = document.createElement('div');
+            newsItem.className = 'item';
+            newsItem.innerHTML = `
+                <div>
+                    <h4>${item.title}</h4>
+                    <p>${item.content || 'لا يوجد وصف'}</p>
+                    ${item.image ? `<img src="${item.image}" style="max-width: 100px; max-height: 80px; margin-top: 10px;">` : ''}
+                </div>
+                <div class="item-actions">
+                    <button class="edit-btn" data-id="${item.id}">تعديل</button>
+                    <button class="delete-btn" data-id="${item.id}">حذف</button>
+                </div>
+            `;
+            newsList.appendChild(newsItem);
+            
+            // إضافة الأحداث للأزرار
+            newsItem.querySelector('.edit-btn').addEventListener('click', function() {
+                editNewsItem(this.getAttribute('data-id'));
+            });
+            
+            newsItem.querySelector('.delete-btn').addEventListener('click', function() {
+                deleteNewsItem(this.getAttribute('data-id'));
+            });
+        });
+    }
+    
+    // عرض الأخبار في الصفحة الرئيسية
+    if (newsContainer) {
+        news.forEach(item => {
+            const newsCard = document.createElement('div');
+            newsCard.className = 'news-card';
+            newsCard.innerHTML = `
+                <h3 class="news-title">${item.title}</h3>
+                ${item.image ? `<img src="${item.image}" class="news-image" alt="${item.title}">` : ''}
+                <p>${item.content || 'لا يوجد وصف'}</p>
+            `;
+            newsContainer.appendChild(newsCard);
+        });
+    }
+}
+
+// تحميل البيانات من التخزين المحلي
+function loadFromLocalStorage() {
+    // تحميل الإعدادات العامة
+    const instituteName = localStorage.getItem('instituteName');
+    const academicYear = localStorage.getItem('academicYear');
+    const instituteLogo = localStorage.getItem('instituteLogo');
+    
+    if (instituteName) {
+        document.getElementById('institute-name').value = instituteName;
+        document.querySelector('.institute-name').textContent = instituteName;
+    }
+    
+    if (academicYear) {
+        document.getElementById('academic-year').value = academicYear;
+    }
+    
+    if (instituteLogo) {
+        document.querySelector('.logo').innerHTML = `<img src="${instituteLogo}" alt="شعار المعهد">`;
+    }
+    
+    // تحميل إعدادات المظهر
+    const primaryColor = localStorage.getItem('primaryColor');
+    const textColor = localStorage.getItem('textColor');
+    const fontSize = localStorage.getItem('fontSize');
+    
+    if (primaryColor) {
+        document.documentElement.style.setProperty('--primary-color', primaryColor);
+        // تحديث الألوان النشطة في لوحة التحكم
+        updateActiveColor('primary', primaryColor);
+    }
+    
+    if (textColor) {
+        document.documentElement.style.setProperty('--text-color', textColor);
+        updateActiveColor('text', textColor);
+    }
+    
+    if (fontSize) {
+        document.documentElement.style.setProperty('--font-size', fontSize);
+        document.getElementById('font-size').value = fontSize;
+    }
+    
+    // تحميل إعدادات الأقسام
+    const showNews = localStorage.getItem('showNews');
+    const showRegistration = localStorage.getItem('showRegistration');
+    const showSpecialties = localStorage.getItem('showSpecialties');
+    
+    if (showNews !== null) {
+        document.getElementById('toggle-news').checked = showNews === 'true';
+        document.getElementById('news').style.display = showNews === 'true' ? 'block' : 'none';
+    }
+    
+    if (showRegistration !== null) {
+        document.getElementById('toggle-registration').checked = showRegistration === 'true';
+        document.getElementById('registration').style.display = showRegistration === 'true' ? 'block' : 'none';
+    }
+    
+    if (showSpecialties !== null) {
+        document.getElementById('toggle-specialties').checked = showSpecialties === 'true';
+        document.querySelector('.specialties-section').style.display = showSpecialties === 'true' ? 'block' : 'none';
+    }
+    
+    // تحميل الأخبار
+    const news = localStorage.getItem('news');
+    if (!news) {
+        localStorage.setItem('news', JSON.stringify(initialNews));
+    }
+}
+
+// تحديث الألوان النشطة في لوحة التحكم
+function updateActiveColor(type, color) {
+    const colorOptions = document.querySelectorAll(`[data-color="${type}"] .color-option`);
+    colorOptions.forEach(option => {
+        option.classList.remove('active');
+        if (option.getAttribute('data-value') === color) {
+            option.classList.add('active');
+        }
+    });
+}
+    </script>
+</body>
+<footer>
+    <p>جميع الحقوق محفوظة &copy; المعهد العالي للمعلمين – محافظة إب، المهندس أسامة محمد علي سعيد العمري</p>
+</footer>
+</html>
